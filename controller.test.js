@@ -2,6 +2,7 @@ const targetFn = require("./controller");
 
 describe("the print function", ()=>{
 
+    // standard best practice
     beforeEach(()=>{
         jest.clearAllMocks();
     })
@@ -13,6 +14,6 @@ describe("the print function", ()=>{
         }
 
         targetFn(mockReq, mockRes);
-        expect(mockRes.send).toHaveBeenCalledWith("Hello world!");
+        expect(mockRes.send).toHaveBeenCalledWith("Hello world!"); // If you change this value, the test will fail.
     })
 })
