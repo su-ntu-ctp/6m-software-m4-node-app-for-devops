@@ -27,10 +27,7 @@ jobs:
     docker:
       - image: cimg/node:16.10
     environment:
-      IMAGE_NAME: $DOCKERHUB_USERNAME/cont_integration
-    auth:
-      username: $DOCKERHUB_USERNAME
-      password: $DOCKERHUB_PASSWORD
+      IMAGE_NAME: $DOCKERHUB_USERNAME/cont_integration    
     steps:
       - checkout
       - setup_remote_docker
