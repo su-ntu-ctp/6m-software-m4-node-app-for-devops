@@ -2,6 +2,7 @@ version: 2.1
 orbs:
   node: circleci/node@5.0.1
   docker: circleci/docker@2.2.0
+  heroku: circleci/heroku@2.0.0
 jobs:
   build:
     docker:
@@ -40,6 +41,19 @@ jobs:
            echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USERNAME --password-stdin
            docker build -t $IMAGE_NAME:1.0.0 .
            docker push $IMAGE_NAME:1.0.0
+  deploy:
+      docker:
+          - image: cimg/node:16.10
+      steps:
+          - setup_remote_docker      
+          - heroku/install
+          - checkout
+          - run:
+              name: Heroku Container Push
+              command: | 
+                  heroku container:login
+                  heroku container:push web -a jerome-su-devops
+                  heroku container:release web -a jerome-su-devops
 
 workflows:
   simple_workflow:
@@ -50,4 +64,7 @@ workflows:
             - build
       - publish:
           requires:
-            - test   
+            - test
+      - deploy:
+          requires:
+            - publish
