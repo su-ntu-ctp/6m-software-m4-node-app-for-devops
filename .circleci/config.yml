@@ -59,7 +59,13 @@ workflows:
   simple_workflow:
     jobs:
       - build
+          filters: 
+              branches:
+                only: main
       - test:
+          filters: 
+              branches:
+                only: main
           requires:
             - build
       - publish:
