@@ -45,9 +45,9 @@ jobs:
         - run:
             name: Heroku Container Push
             command: | 
-                heroku container:login
-                heroku container:push web -a recharging-su-devops
-                heroku container:release web -a recharging-su-devops
+              heroku container:login
+              heroku container:push web -a recharging-su-devops
+              heroku container:release web -a recharging-su-devops
 
 workflows:
   simple_workflow:
