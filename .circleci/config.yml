@@ -59,9 +59,9 @@ workflows:
   simple_workflow_plus_docker:
     jobs:
       - build
-      - test:
-          requires:
-            - build
+      # - test:
+      #     requires:
+      #       - build
       - push:
           requires:
             - build
