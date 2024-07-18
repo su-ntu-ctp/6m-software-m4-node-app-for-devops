@@ -5,12 +5,21 @@ orbs:
 
 # https://emmer.dev/blog/publishing-docker-images-with-circleci/
 
+executors:
+  docker-publisher:
+    environment:
+      IMAGE_TAG: recharging/m4-node-app-for-devops:latest
+    docker:
+      -image: docker:stable
+
 jobs:
   build:
     docker:
       - image: cimg/node:16.10
+    executor: docker-publisher
     steps:
       - checkout
+      - setup_remote_docker
   #   - node/install-packages:
   #       pkg-manager: npm
   # - run: |
@@ -30,6 +39,7 @@ jobs:
   push:
     docker:
       - image: cimg/node:16.10
+    executor: docker-publisher
     steps:
       - attach_workspace:
           at: /tmp/workspace
