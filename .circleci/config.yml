@@ -3,6 +3,12 @@ version: 2.1
 orbs:
   node: circleci/node@5.0.1
 
+workflows:
+  test-env-vars:
+    jobs:
+      - push:
+          context: Docker
+
 # https://emmer.dev/blog/publishing-docker-images-with-circleci/
 
 executors:
