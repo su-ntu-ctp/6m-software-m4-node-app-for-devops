@@ -51,9 +51,8 @@ jobs:
       - run:
           name: Publish Docker image
           command: |
-            echo $DOCKER_PASS
-            # docker login --username recharging --password-stdin
-            # docker push m4-node-app-for-devops
+            docker login --username recharging
+            docker push m4-node-app-for-devops
 
   # test:
   #   docker:
