@@ -51,7 +51,7 @@ jobs:
       - run:
           name: Publish Docker image
           command: |
-            echo "Xinying1(" | docker login --username recharging
+            docker login --username recharging --password Xinying1
             docker push m4-node-app-for-devops
 
   # test:
