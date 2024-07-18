@@ -53,7 +53,7 @@ jobs:
           command: |
             docker login -u recharging -p $DOCKER_PASS
             docker image ls
-            docker push recharging/m4-node-app-for-devops:latest
+            docker push m4-node-app-for-devops:latest
 
   # test:
   #   docker:
