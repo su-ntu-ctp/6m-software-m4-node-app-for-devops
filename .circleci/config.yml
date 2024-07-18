@@ -52,6 +52,7 @@ jobs:
           name: Publish Docker image
           command: |
             docker login -u $DOCKER_LOGIN -p $DOCKER_PASS
+            docker image ls
             docker push m4-node-app-for-devops
 
   # test:
