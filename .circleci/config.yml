@@ -27,6 +27,7 @@ jobs:
   
   publish:
     executor: docker/docker
+    context: Docker
     steps:
       - setup_remote_docker
       - checkout
