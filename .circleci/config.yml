@@ -55,25 +55,25 @@ jobs:
             docker image ls
             docker push $IMAGE_TAG
 
-  # test:
-  #   docker:
-  #     - image: cimg/node:16.10
-  #   steps:
-  #     - checkout
-  #     - node/install-packages:
-  #         pkg-manager: npm
-  #     - run:  |
-  #         echo "Running tests..."
-  #         npm run test
+  test:
+    docker:
+      - image: cimg/node:16.10
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: npm
+      - run:  |
+          echo "Running tests..."
+          npm run test
 
 
 workflows:
   simple_workflow_plus_docker:
     jobs:
       - build
-      # - test:
-      #     requires:
-      #       - build
+      - test:
+          requires:
+            - build
       - push:
           context: Docker
           requires:
