@@ -10,7 +10,7 @@ executors:
     environment:
       IMAGE_TAG: recharging/m4-node-app-for-devops:latest
     docker:
-      -image: docker:stable
+      - image: docker:stable
 
 jobs:
   build:
