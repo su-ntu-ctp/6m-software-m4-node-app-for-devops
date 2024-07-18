@@ -46,6 +46,7 @@ jobs:
             name: Heroku Container Push
             command: | 
                 heroku container:login
+                heroku stack:set container -a recharging-su-devops
                 heroku container:push web -a recharging-su-devops
                 heroku container:release web -a recharging-su-devops
 
