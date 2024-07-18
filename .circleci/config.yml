@@ -28,6 +28,8 @@ jobs:
           paths:
             - ./image.tar
   push:
+    docker:
+      - image: cimg/node:16.10
     steps:
       - attach_workspace:
           at: /tmp/workspace
