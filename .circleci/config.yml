@@ -51,9 +51,9 @@ jobs:
       - run:
           name: Publish Docker image
           command: |
-            docker login -u $DOCKER_LOGIN -p $DOCKER_PASS
+            docker login -u recharging -p $DOCKER_PASS
             docker image ls
-            docker push $DOCKER_LOGIN/m4-node-app-for-devops:latest
+            docker push recharging/m4-node-app-for-devops:latest
 
   # test:
   #   docker:
